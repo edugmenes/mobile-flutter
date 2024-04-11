@@ -29,6 +29,7 @@ EXEMPLO FATURA SEM PARAR:
     - SUSPENDER()
     - (create, update, read, delete)
 */
+
 void main() {
   try {
     Cliente c1 = new Cliente();
@@ -46,27 +47,34 @@ ENCAPSULAMENTO -> Atributos da classe devem se tornar privados!
 Em dart utiliza-se '_' para tornar o recurso privado.
 -> Para leitura e escrita deve-se ofertar métodos get/set
 */
+
 class Cliente {
   //ATRIBUTOS
   String? _nome;
   String? _cpf;
   String? _email;
+
   //MÉTODOS CONSTRUTORES
   Cliente() {}
   Cliente.todos(this._nome, this._cpf, this._email);
+
   /* FORMATO CONVENCIONAL DE SE DECLARAR UM CONSTRUTOR
+  
   Cliente.todos(String nome, String cpf, String email){
     this.nome = nome;
     this.cpf = cpf;
     this.email = email;
   }
+  
   EM DART UMA FORMA ANALÓGA É DESCRITA ABAIXO
   */
 
   //MÉTODOS (RETORNAM OU NÃO RETORNAM VALOR)
+
   void inativar() {}
   void ativar() {}
   void suspender() {}
+
   //MÉTODOS ENCAPSULAMENTO
   //GETTERS/SETTERS
   //GET -> MÉTODO DE LEITURA
@@ -86,22 +94,26 @@ class Cliente {
 
   /*
   EXEMPLO DE USO DE ARROW FUNCTION =>
+  
   String? get nome => this._nome;
   
   EXEMPLO DE USO MÉTODO GET/SET EM DART (RECOMENDADO)
   -> DESTA FORMA É NECESSÁRIO QUE O MÉTODO GET TENHA O MESMO 
   NOME DO ATRIBUTO, PORÉ, DE MANEIRA PÚBLICA.
   */
+
   String? get email {
     return this._email;
   }
 
   set email(String? email) {
     /* EXEMPLO OPERAÇÃO TERNÁRIA DA CONDIÇÃO DE VALIDAÇÃO DO E-MAIL
+    
     (!email!.contains('@')) ? 
-      throw new Exception("E-mail inválido!") : 
-      this._email = email;
+    throw new Exception("E-mail inválido!") : 
+    this._email = email;
     */
+
     if (!email!.contains('@'))
       throw new Exception("E-mail inválido!");
     else

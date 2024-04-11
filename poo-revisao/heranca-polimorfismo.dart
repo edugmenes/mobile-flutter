@@ -41,7 +41,8 @@ class Funcionario extends Pessoa {
 
   Funcionario(String? nome, String? email, Endereco? endereco, this.salario)
       : super.all(nome, email, endereco);
-//EXEMPLO DE REESCRITA TOTAL DO MÉTODO
+
+  //EXEMPLO DE REESCRITA TOTAL DO MÉTODO
   @override
   void Consultar() {
     print('${email} - ${nome} - ${this.salario}');
